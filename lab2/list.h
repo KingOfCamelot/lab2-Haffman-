@@ -2,8 +2,10 @@
 #define ADD_H
 #include <iostream>
 
-struct node { int info; struct node* next; };
+template<typename T>
+struct node { T info; struct node* next; };
 
+template<typename T>
 class ListOfNum
 {
 private: size_t size;
@@ -23,17 +25,17 @@ public:
             LastItem = head;
         }
     }
-    void push_back(int Num);
-    void push_front(int Num);
+    void push_back(T Num);
+    void push_front(T Num);
     void pop_back();
     void pop_front();
-    void insert(int value, int index);
-    bool contains(int num);
-    int at(int index);//get elem
-    void remove(int index);
+    void insert(T value, size_t index);
+    bool contains(T num);
+    int at(T index);
+    void remove(T index);
     int get_size();
     void clear();
-    void set(int index, int value);
+    void set(size_t index, T value);
     bool isEmpty();
 };
 #endif

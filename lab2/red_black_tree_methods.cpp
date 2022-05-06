@@ -4,9 +4,11 @@
 
 using namespace std;
 
-red_black_tree_node* root = nullptr;
+template<typename T1, typename T2>
+red_black_tree_node<T1, T2>* root = nullptr;
 
-void right_turn(red_black_tree_node* turn_y)
+template<typename T1, typename T2>
+void right_turn(red_black_tree_node<T1, T2>* turn_y)
 {
 	red_black_tree_node* x = turn_y->left_side;
 	turn_y->left_side = x->right_side;
@@ -22,7 +24,8 @@ void right_turn(red_black_tree_node* turn_y)
 	turn_y->parent = x;
 }
 
-void left_turn(red_black_tree_node* turn_x)
+template<typename T1, typename T2>
+void left_turn(red_black_tree_node<T1, T2>* turn_x)
 {
 	red_black_tree_node* x = turn_x->right_side;
 	turn_x->right_side = x->left_side;
@@ -38,7 +41,8 @@ void left_turn(red_black_tree_node* turn_x)
 	turn_x->parent = x;
 }
 
-void swap_node(red_black_tree_node* x_1, red_black_tree_node* x_2)
+template<typename T1, typename T2>
+void swap_node(red_black_tree_node<T1, T2>* x_1, red_black_tree_node<T1, T2>* x_2)
 {
 	if (x_1->parent == nullptr) root = x_2;
 	else if (x_1 == x_1->parent->left_side) x_1->parent->left_side = x_2;
@@ -46,7 +50,8 @@ void swap_node(red_black_tree_node* x_1, red_black_tree_node* x_2)
 	x_2->parent = x_1->parent;
 }
 
-void red_black_tree::insert(int key, int value)
+template<typename T1, typename T2>
+void red_black_tree<T1, T2>::insert(T1 key, T2 value)
 {
 	size++;
 	red_black_tree_node* x = root;
@@ -116,7 +121,8 @@ void red_black_tree::insert(int key, int value)
 	root->color = black;
 }
 
-void red_black_tree::print(red_black_tree_node* node)
+template<typename T1, typename T2>
+void red_black_tree<T1, T2>::print(red_black_tree_node<T1, T2>* node)
 {
 	if (node == NULL) return;
 	if (node->parent == NULL) cout << node->key << "-" << node->color << " is root" << endl;
@@ -126,33 +132,38 @@ void red_black_tree::print(red_black_tree_node* node)
 	print(node->right_side);
 }
 
-red_black_tree_node* find_help(red_black_tree_node* temp, int key)
+template<typename T1, typename T2>
+red_black_tree_node<T1, T2>* find_help(red_black_tree_node<T1, T2>* temp, T1 key)
 {
 	if (temp == NULL || temp->key == key) return temp;
 	else if (key > temp->key) return find_help(temp->right_side, key);
 	else return find_help(temp->left_side, key);
 }
 
-red_black_tree_node* red_black_tree::find(int key)
+template<typename T1, typename T2>
+red_black_tree_node<T1, T2>* red_black_tree<T1, T2>::find(T1 key)
 {
 	return find_help(root, key);
 }
 
-void red_black_tree::clear_help(red_black_tree_node* x)
+template<typename T1, typename T2>
+void red_black_tree<T1, T2>::clear_help(red_black_tree_node<T1, T2>* x)
 {
 	if (x->left_side)   clear_help(x->left_side);
 	if (x->right_side)  clear_help(x->right_side);
 	delete x;
 }
 
-void red_black_tree::clear()
+template<typename T1, typename T2>
+void red_black_tree<T1, T2>::clear()
 {
 	red_black_tree_node* x = root;
 	clear_help(x);
 	root = nullptr;
 }
 
-void fix_remove(red_black_tree_node* X)
+template<typename T1, typename T2>
+void fix_remove(red_black_tree_node<T1, T2>* X)
 {
 	red_black_tree_node* temp_value;
 	while (X != root && X->color == colorEnum::black)
@@ -225,7 +236,8 @@ void fix_remove(red_black_tree_node* X)
 	X->color = colorEnum::black;
 }
 
-void red_black_tree::remove(int key)
+template<typename T1, typename T2>
+void red_black_tree<T1, T2>::remove(T1 key)
 {
 	red_black_tree_node* deletenode = find(key);
 	size--;
@@ -277,7 +289,8 @@ void red_black_tree::remove(int key)
 	}
 }
 
-ListOfNum red_black_tree::get_values()
+template<typename T1, typename T2>
+ListOfNum<T2> red_black_tree<T1, T2>::get_values()
 {
 	ListOfNum list;
 	red_black_tree_node* current = root;
@@ -319,7 +332,8 @@ ListOfNum red_black_tree::get_values()
 	return list;
 }
 
-ListOfNum red_black_tree::get_keys()
+template<typename T1, typename T2>
+ListOfNum<T1> red_black_tree<T1, T2>::get_keys()
 {
 	ListOfNum list;
 	red_black_tree_node* current = root;
@@ -359,17 +373,4 @@ ListOfNum red_black_tree::get_keys()
 		}
 	}
 	return list;
-}
-
-int main()
-{
-	int array[6] = { 53,42,63,61,71,55 };
-	red_black_tree map;
-	ListOfNum list;
-	for (int i = 0; i < 6; i++) {
-		map.insert(array[i], array[i]);
-	}
-	map.print(root);
-	map.remove(55);
-	map.print(root);
 }

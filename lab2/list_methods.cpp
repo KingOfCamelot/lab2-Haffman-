@@ -3,7 +3,8 @@
 
 using namespace std;
 
-void ListOfNum::push_back(int Num)
+template<typename T>
+void ListOfNum<T>::push_back(T Num)
 {
     node* elem = new node;
     elem->info = Num;
@@ -20,7 +21,8 @@ void ListOfNum::push_back(int Num)
     }
     size++;
 }
-void ListOfNum::push_front(int Num)
+template<typename T>
+void ListOfNum<T>::push_front(T Num)
 {
     node* elem = new node;
     elem->info = Num;
@@ -37,7 +39,8 @@ void ListOfNum::push_front(int Num)
     }
     size++;
 }
-void ListOfNum::pop_back()
+template<typename T>
+void ListOfNum<T>::pop_back()
 {
     if (head == nullptr) throw invalid_argument("List empty");
     node* temp = head;
@@ -52,7 +55,8 @@ void ListOfNum::pop_back()
     if (temp) delete temp;
     size--;
 }
-void ListOfNum::pop_front()
+template<typename T>
+void ListOfNum<T>::pop_front()
 {
     if (head == nullptr) throw invalid_argument("List empty");
     if (head->next == nullptr) {
@@ -68,7 +72,8 @@ void ListOfNum::pop_front()
     }
     size--;
 }
-void ListOfNum::remove(int index)
+template<typename T>
+void ListOfNum<T>::remove(T index)
 {
     if (index > get_size()) throw invalid_argument("Your index > size of list");
     if (index <= 0) throw invalid_argument("Your index <= 0");
@@ -83,7 +88,8 @@ void ListOfNum::remove(int index)
     size--;
     delete CurrentItem;
 }
-int ListOfNum::at(int index)
+template<typename T>
+int ListOfNum<T>::at(T index)
 {
     if (index > get_size()) throw invalid_argument("Your index > size of list");
     if (index <= 0) throw invalid_argument("Your index <= 0");
@@ -97,7 +103,8 @@ int ListOfNum::at(int index)
     CurrentItem->info = tmp_ptr->info;
     return tmp_ptr->info;
 }
-bool ListOfNum::contains(int Num)
+template<typename T>
+bool ListOfNum<T>::contains(T Num)
 {
     node* current = head;
     while (current)
@@ -107,7 +114,8 @@ bool ListOfNum::contains(int Num)
     }
     return false;
 }
-int ListOfNum::get_size()
+template<typename T>
+int ListOfNum<T>::get_size()
 {
     if (isEmpty())
     {
@@ -123,7 +131,8 @@ int ListOfNum::get_size()
     CurrentItem->info = size;
     return size;
 }
-void ListOfNum::set(int index, int value)
+template<typename T>
+void ListOfNum<T>::set(size_t index, T value)
 {
     if (index > get_size()) throw invalid_argument("Your index > size of list");
     if (index <= 0) throw invalid_argument("Your index <= 0");
@@ -134,11 +143,13 @@ void ListOfNum::set(int index, int value)
         CurrentItem = CurrentItem->next;
     }
 }
-bool ListOfNum::isEmpty()
+template<typename T>
+bool ListOfNum<T>::isEmpty()
 {
     return head == nullptr;
 }
-void ListOfNum::clear()
+template<typename T>
+void ListOfNum<T>::clear()
 {
     if (head != nullptr)
     {
@@ -148,7 +159,8 @@ void ListOfNum::clear()
         }
     }
 }
-void ListOfNum::insert(int value, int index)
+template<typename T>
+void ListOfNum<T>::insert(T value, size_t index)
 {
     if (index > get_size()) throw invalid_argument("Your index > size of list");
     if (index <= 0) throw invalid_argument("Your index <= 0");
