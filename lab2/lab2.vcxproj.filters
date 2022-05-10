@@ -21,7 +21,7 @@
     <ClInclude Include="red_black_tree.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="Header.h">
+    <ClInclude Include="Huffman.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="string.h">

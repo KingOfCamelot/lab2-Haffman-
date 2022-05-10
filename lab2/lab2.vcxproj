@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="Huffman.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="red_black_tree.h" />
     <ClInclude Include="string.h" />

@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 #include "CppUnitTest.h"
-#include "../lab2/Header.h"
+#include "../lab2/Huffman.h"
 #include "../lab2/list.h"
 #include "../lab2/string.h"
 

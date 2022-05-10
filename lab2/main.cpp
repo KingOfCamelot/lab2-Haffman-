@@ -1,6 +1,6 @@
 #include <iostream>
 #include "string.h"
-#include "Header.h"
+#include "Huffman.h"
 #include "list.h"
 using namespace std;
 
