@@ -6,7 +6,7 @@ using namespace std;
 template<typename T>
 void ListOfNum<T>::push_back(T Num)
 {
-    node* elem = new node;
+    node_list_list* elem = new node_list_list;
     elem->info = Num;
     if (head == nullptr)
     {
@@ -24,7 +24,7 @@ void ListOfNum<T>::push_back(T Num)
 template<typename T>
 void ListOfNum<T>::push_front(T Num)
 {
-    node* elem = new node;
+    node_list_list* elem = new node_list_list;
     elem->info = Num;
     if (head == nullptr)
     {
@@ -43,8 +43,8 @@ template<typename T>
 void ListOfNum<T>::pop_back()
 {
     if (head == nullptr) throw invalid_argument("List empty");
-    node* temp = head;
-    node* prev = NULL;
+    node_list* temp = head;
+    node_list* prev = NULL;
     while (temp->next)
     {
         prev = temp;
@@ -66,7 +66,7 @@ void ListOfNum<T>::pop_front()
     }
     else
     {
-        node* first = head->next;
+        node_list* first = head->next;
         delete head;
         head = first;
     }
@@ -78,7 +78,7 @@ void ListOfNum<T>::remove(T index)
     if (index > get_size()) throw invalid_argument("Your index > size of list");
     if (index <= 0) throw invalid_argument("Your index <= 0");
     CurrentItem = head;
-    node* previositem = 0;
+    node_list* previositem = 0;
     for (int i = 0; i < index; ++i)
     {
         previositem = CurrentItem;
@@ -94,7 +94,7 @@ int ListOfNum<T>::at(T index)
     if (index > get_size()) throw invalid_argument("Your index > size of list");
     if (index <= 0) throw invalid_argument("Your index <= 0");
     int i = 0;
-    node* tmp_ptr = head;
+    node_list* tmp_ptr = head;
     while (i < index)
     {
         tmp_ptr = tmp_ptr->next;
@@ -106,7 +106,7 @@ int ListOfNum<T>::at(T index)
 template<typename T>
 bool ListOfNum<T>::contains(T Num)
 {
-    node* current = head;
+    node_list* current = head;
     while (current)
     {
         if (current->info == Num) return true;
@@ -122,7 +122,7 @@ int ListOfNum<T>::get_size()
         CurrentItem->info = 0;
         return 0;
     }
-    node* tmp_ptr = head;
+    node_list* tmp_ptr = head;
     while (tmp_ptr->next != nullptr)
     {
         tmp_ptr = tmp_ptr->next;
@@ -164,7 +164,7 @@ void ListOfNum<T>::insert(T value, size_t index)
 {
     if (index > get_size()) throw invalid_argument("Your index > size of list");
     if (index <= 0) throw invalid_argument("Your index <= 0");
-    node* newel = new node;
+    node_list* newel = new node_list;
     newel->info = value;
     if (index == 1)
     {
@@ -173,7 +173,7 @@ void ListOfNum<T>::insert(T value, size_t index)
     }
     else
     {
-        node* before = head;
+        node_list* before = head;
         for (int i = 0; i < index - 1; i++)
             before = before->next;
 

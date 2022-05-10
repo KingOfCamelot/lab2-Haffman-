@@ -15,7 +15,7 @@ public:
     String();
     String(const String&);
     ~String();
-    int length_() const { return length; }
+    int length_() { return length; }
 
     String& operator=(const String&);
     String& operator=(const char*);
@@ -29,5 +29,5 @@ public:
     friend istream& operator>>(istream& is, String& line);
     friend String operator+(const String& line_1, const String& line_2);
 
-    static int quantity();
+    int quantity();
 };

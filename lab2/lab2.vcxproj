@@ -26,6 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list_methods.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="red_black_tree_methods.cpp" />
     <ClCompile Include="string.cpp" />
   </ItemGroup>

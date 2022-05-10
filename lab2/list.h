@@ -3,23 +3,23 @@
 #include <iostream>
 
 template<typename T>
-struct node { T info; struct node* next; };
+struct node_list { T info; struct node_list* next; };
 
 template<typename T>
 class ListOfNum
 {
 private: size_t size;
 public:
-    node* CurrentItem;
-    node* head = NULL;
-    node* LastItem;
+    node_list* CurrentItem;
+    node_list* head = NULL;
+    node_list* LastItem;
     ListOfNum()
     {
         size = 0;
         int Value = 1;
         if (head == NULL)
         {
-            head = new node;
+            head = new node_list;
             head->info = Value++;
             head->next = NULL;
             LastItem = head;
