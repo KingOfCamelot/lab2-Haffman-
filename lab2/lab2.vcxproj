@@ -19,12 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="red_black_tree.h" />
+    <ClInclude Include="string.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list_methods.cpp" />
     <ClCompile Include="red_black_tree_methods.cpp" />
+    <ClCompile Include="string.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

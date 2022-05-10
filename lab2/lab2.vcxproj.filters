@@ -21,12 +21,21 @@
     <ClInclude Include="red_black_tree.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="string.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list_methods.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="red_black_tree_methods.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="string.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
